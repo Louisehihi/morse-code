@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    </head>
+    <body>
+        <style type="text/css">
+
+        
+           
+            @media screen and (max-width:700px){ 
+
+                
+                .logo{
+                    width:20vw;
+                }
+                .h1{
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                
+
+                }
+                .form-control{
+                    width:100%;
+                    justify-content: center;
+                    align-items: center;
+        
+                
+                    
+                }
+                .change-size{
+                    font-size: 20px;
+                    height: 170px !important;
+
+                }
+                .form-floating{
+                    width: 100%;
+                    
+                }
+                .wrap{
+                    width:100%;
+                    display: flex;
+                    justify-content: space-around;
+                    margin-left: 20px;
+                }
+                .item{
+                    display: flex;
+                    width:100%;
+                    justify-content: center;
+                    /* position:relative; */
+                    margin: 20px;
+                    flex-direction: column;
+                }
+                .item img{
+                    /* max-width: 100%; */
+                    width:80vw;
+                    height: auto;
+                    /* margin-left: 10px; */
+                }
+                .item.txt{
+                    position: absolute;
+                    top:0px;
+                    padding:20px;
+                    background-color: rgb(83, 60, 67);
+                    
+                }
+                .shape-ex2{
+               
+                    font-size: 20px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    position: relative;
+                    margin-left: 30px;
+                }
+                .shape-ex4{
+                    font-size: 18px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    position: relative;
+                    transition: all .3s linear;
+                }
+                .shape-ex4:hover{
+                    color: #d81616;
+                }
+                .embed-container { 
+                    position: relative; 
+                    height: 300px; 
+                    overflow: hidden;
+                    max-width: 100%; 
+                    top:20px;
+                    /* margin: 30px; */
+                } 
+                .embed-container iframe,.embed-container object,.embed-container embed { 
+                    position: absolute; 
+                    top: 0; 
+                    left: 0; 
+                    width: 100%;
+                    height: 100%;
+                    padding:30px; 
+                }
+                .banner video{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top:0;
+                    left:0;
+                    object-fit: cover;
+                }
+                .banner h2{
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    width: 100%;
+                    height: 100%;
+                    font-size: 30vw;
+                    text-align: center;
+                    line-height:100vh;
+                    text-transform:uppercase;
+                    background-color: #fff;
+                    mix-blend-mode: screen;
+                
+                }
+            }
+                
+        
+        @media screen and (min-width:700px){ 
+
+            .logo{
+                width:15vw;
+                padding-top: -50px;
+            }
+            .h1{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+
+            }
+            .form-control{
+                width:100%;
+                justify-content: center;
+                align-items: center;
+    
+            
+                
+            }
+            .change-size{
+                font-size: 15px;
+                height: 170px !important;
+            }
+            .form-floating{
+                width: 100%;
+                
+            }
+            .wrap{
+                width:100%;
+                display: flex;
+                justify-content: space-around;
+                margin-left: 20px;
+            }
+            .item{
+                display: flex;
+                width:100%;
+                justify-content: center;
+                
+                position:relative;
+                margin-top: 20px;
+            }
+            .item img{
+                /* max-width: 100%; */
+                width:20vw;
+                height: auto;
+                top:40px;
+                /* margin-left: 10px; */
+            }
+            .item.txt{
+                position: absolute;
+                top:0px;
+                padding:20px;
+                background-color: rgb(83, 60, 67);
+            }
+           
+            
+            .shape-ex2{
+               
+               font-size: 20px;
+               display: inline-block;
+               vertical-align: middle;
+               position: relative;
+               margin-left: 30px;
+            }
+            .shape-ex2-line{
+                width: 0%;
+                height: 1px;
+                background-color: #000;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                transition: all .3s linear;
+            }
+            .shape-ex2:hover .shape-ex2-line{
+                width: 100%;
+            }
+            
+            .embed-container { 
+                position: relative; 
+                height: 300px; 
+                overflow: hidden;
+                max-width: 100%;                 
+               
+                 
+            } 
+            .embed-container iframe,.embed-container object,.embed-container embed { 
+                position: absolute; 
+                top: 0; left: 0; 
+                width: 100%;
+                height: 100%; 
+                padding:30px;
+            }
+            *{
+                margin:0;
+                padding:0;
+                font-family: 'Poppins', sans-serif;
+            }
+            .banner{
+                width: 100%;
+                height: 100vh;
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items:center;
+            }
+            .banner video{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top:0;
+                left:0;
+                object-fit: cover;
+            }
+            .banner h2{
+                position: absolute;
+                top:0;
+                left:0;
+                width: 100%;
+                height: 100%;
+                font-size: 30vw;
+                text-align: center;
+                line-height:100vh;
+                text-transform:uppercase;
+                background-color: #fff;
+                mix-blend-mode: screen;
+            
+            }
+            
+
+          
+        }
+
+        
+    
+        
+       
+        
+        </style>
+        
+        
+        
+        
+        
+        <div>
+            <!-- <div style="display:flex;justify-content: space-around;background: linear-gradient(to right, rgb(73, 122, 77) 10%, black 100%);height:30px;color:aliceblue">
+                -.-- --- ..- / -. . ...- . .-. / -.- -. --- .-- / .-- .... --- / .- -- / ..
+                -.-- --- ..- / -. . ...- . .-. / -.- -. --- .-- / .-- .... --- / .- -- / ..
+            </div> -->
+            
+            <div style="display: flex;align-items: center;justify-content: center;">
+                <img class="logo"src="./imags/logo.png"> 
+            </div>    
+            <div style="display: flex;justify-content: space-around;margin-top: -40px;"class="shape-ex2">
+                <p onclick="alertStillDevelopint()">ABOUT</p>
+                <div class="shape-ex2-line" ></div>
+                <p onclick="alertStillDevelopint()">STORY</p>
+                <div class="shape-ex2-line" ></div>
+                <p onclick="alertStillDevelopint()">WRITE</p>
+                <div class="shape-ex2-line" ></div>
+                <p onclick="alertStillDevelopint()">GET START</p>
+                <div class="shape-ex2-line" ></div>
+            </div>
+            <div style="padding:20px;display:flex;flex-direction:column;justify-content: center;margin-left:30px;font-family: Sans-serif;color: darkgreen;">
+                <h1 style="text-align:center">Learning the Basics of Morse Code</h1>
+                <p style="text-align:center">In the international code, a "dash" is three times longer than a "dot." On paper,<br> "-" is the symbol for a dash while every "." represents a dot. "E" is a simple letter; it consists of just one "." Other characters are a bit more intricate. For example, "-.-." means "C."</p>
+            </div>
+            <!-- <div class="banner">
+                <video autoplay muted loop>
+                  <source src="https://storage.coverr.co/videos/IIHifY02t9LqcHkbEs2DTK8NElI2JKm4H?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjEzNjM3NDE5fQ.UUz6vmTAmUCQzbhRYZNL3WuFntsfFNQn_sPhJit3Hnk" type="video/mp4">
+                </video>
+                <p><Hello</p>
+              </div> -->
+            
+            <div style="display:flex;justify-content: center;"class='embed-container'>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/DkqkTKqkJf8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    
+                  
+                
+            </div>
+              
+           
+            <!-- <div>
+                <div style="justify-content: space-around;font-family: Lucida Console;font-size:15px;background-image: url('https://miro.medium.com/max/7510/0*nauN1dFscabh3e72');color: rgb(243, 245, 247);" class="item">
+                    <div>
+                        <img src="./imags/stay.jpg">
+                        <h2>s1 de s2 </h2>
+                        <p>呼叫s1，這是s2，結束 </p>
+                        
+
+                    </div>
+                    <div>
+                        <img src="./imags/photo1.jpeg"/>
+                        <h2>QTH?</h2>
+                        <p>你的位置在哪裡? </p>
+                        
+
+                    </div>
+                    <div>
+                        <img src="./imags/photo2.jpeg"/>
+                        <h2>QRV</h2>
+                        <p>準備好了</p>
+                        
+
+                    </div>
+                    <div>
+                        <img src="./imags/morse-code.jpg"/>
+                        <h2>CQ</h2>
+                        <p>聯絡任一站台</p>
+                        
+
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class='leftwall'style="background-image:url('https://image.shutterstock.com/image-vector/abstract-futuristic-cyberspace-binary-code-600w-740523562.jpg')">
+                <div style="display:flex;justify-content:space-around;margin-left:10px;">
+                    <button type="clicked"class="">SOS</button>
+                    <button type="clicked"class="">NO</button>
+                   
+
+                </div>
+            </div> -->
+            <div style="display:flex;flex-direction:column;justify-content:center;align-items: center;margin: 30px;">
+                
+                <!-- <label for="sos">It’s between you and me</label> -->
+                <div style="display: flex;flex-direction: column;padding:20px" class="form-floating">
+                    <div style="display: flex;justify-content: center;">
+                        <label>Enter an English sentence.</label>
+                    </div>
+
+                    <div style="width: 100%;display: flex;justify-content: center;">
+                        <textarea style="width:70%"  oninput="typetext(this)"   class="form-control" placeholder="Input text" id="floatingTextarea"></textarea>
+                    
+                    </div>
+                    <div style="width: 100%;display: flex;justify-content: center;">
+                        <button style="width: 50px;border:0px;padding:10px;border-radius: 10px;margin-top: 5px;background-color:#f8cdda;color:rgb(240, 18, 92);font-family:fantasy;" type="button" onclick="copyEvent('floatingTextarea')">copy</button>
+                    </div>
+                    
+        
+                </div>
+                <!-- <br><label for="sos">The is your SOS code:</label> -->
+                <div style="display: flex;flex-direction: column;padding:20px" class="form-floating">
+                    <div style="display: flex;justify-content: center;">
+                        <label>This is your morse-code translator.</label>
+                    </div>
+                    <div  style="display: flex;flex-direction: column;" class="form-floating">
+                        <div style= "width: 100%;display: flex;justify-content: center;">
+                            <textarea style="width:70%" class ="change-size form-control" placeholder="morse code" id="floatingTextarea2"></textarea>
+                        </div>
+                        <div style="width: 100%;display: flex;justify-content: center;">
+                            <label for="floatingTextarea2"></label>
+                            <button style="width: 50px;border:0px;padding:10px;border-radius: 10px;margin-top: 5px;background-color:#f8cdda;color:rgb(240, 18, 92);font-family:fantasy;" type="button"onclick="copyEvent('floatingTextarea2')">copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        
+        </div>
+
+        <script>
+
+            function alertStillDevelopint(){
+                Swal.fire({
+                icon: 'error',
+                title: 'Sorry',
+                text: 'We have no time to develop.',
+                // footer: '<a href="">OK</a>'
+                })
+            }
+
+            function copyEvent(id_name){
+                var copyText = document.getElementById(id_name)
+                copyText.select()
+                document.execCommand('copy')
+            }
+
+
+            function test(){
+                
+            }
+
+            test(1) // 11
+
+
+            // function copyEvent2(id){
+            //     var copyText = document.getElementById('floatingTextarea2')
+            //     copyText.select()
+            //     document.execCommand('copy')
+            //     alert('複製完成')
+            // }
+
+            function typetext(i){
+                console.log(i)
+                console.log(i.value)
+                // document.getElementById("floatingTextarea").value;
+                var output = ''
+                // ab=>[a,b]
+                i.value.split('').forEach((str)=>{
+                    
+                    // str換成小寫
+                    // str = downgrade(str)
+                    // var str = "String";
+                    str=str.toLowerCase();
+                    switch(str){
+                        case 'a':
+                            output = output + '·-'
+                            break;
+                        case 'b':
+                            output = output + '-···'
+                            break;
+                        case 'c':
+                            output = output + '-·-·'
+                            break;
+                        case 'd':
+                            output = output + '-··'
+                            break;
+                        case 'e':
+                            output = output + '·'
+                            break;
+                        case 'f':
+                            output = output + '··-·'
+                            break;
+                        case 'g':
+                            output = output + '--·'
+                            break;
+                        case 'h':
+                            output = output + '····'
+                            break;
+                        case 'i':
+                            output = output + '··'
+                            break;
+                        case 'j':
+                            output = output + '·---	'
+                            break;
+                        case 'k':
+                            output = output + '-·-'
+                            break;
+                        case 'l':
+                            output = output + '·-··'
+                            break;
+                        case 'm':
+                            output = output + '--'
+                            break;
+                        case 'n':
+                            output = output + '-·'
+                            break;
+                        case 'o':
+                            output = output + '---'
+                            break;
+                        case 'p':
+                            output = output + '·--·'
+                            break;
+                        case 'q':
+                            output = output + '--·-'
+                            break;
+                        case 'r':
+                            output = output + '·-·'
+                            break;
+                        case 's':
+                            output = output + '···'
+                            break;
+                        case 't':
+                            output = output + '-'
+                            break;
+                        case 'u':
+                            output = output + '··-'
+                            break;
+                        case 'v':
+                            output = output + '···-'
+                            break;
+                        case 'w':
+                            output = output + '·--'
+                            break;
+                        case 'x':
+                            output = output + '-··-'
+                            break;
+                        case 'y':
+                            output = output + '-·--'
+                            break;
+                        case 'z':
+                        output = output + '--··'
+                            break;
+                        case '1':
+                        output = output + '·-'
+                            break;
+                        case '2':
+                        output = output + '··-	'
+                            break;
+                        case '3':
+                        output = output + '···--'
+                            break;
+                        case '4':
+                        output = output + '····-'
+                            break;
+                        case '5':
+                        output = output + '·····'
+                            break;
+                        case '6':
+                        output = output + '-····'
+                            break;
+                        case '7':
+                        output = output + '--···'
+                            break;
+                        case '8':
+                        output = output + '-··'
+                            break;
+                        case '9':
+                        output = output + '-·'
+                            break;
+                        case '0':
+                        output = output + '-'
+                            break;
+
+                        default:
+                            output = output + str
+                    }
+                })
+                
+                console.log(output)
+                document.getElementById('floatingTextarea2').innerHTML = output
+            }
+            console.clear();
+
+            function copyText(dom) {
+                dom.select();
+                document.execCommand('copy');
+            }
+
+            const copyButton = document.getElementsByTagName("button")[0];
+            const inputText = document.getElementsByTagName("input")[0];
+            copyButton.addEventListener("copy", () => {
+                inputText.select();
+                document.execCommand("copy");
+            });
+
+           
+
+        </script>
+    </body>
+</html>
